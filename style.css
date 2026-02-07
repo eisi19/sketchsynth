@@ -92,9 +92,9 @@ textarea {
   margin-left: auto;
   margin-right: auto;
   box-shadow:
-  0 0 10px 3px #c6a36280;
+    0 0 10px 3px #c6a36280;
   padding: 1%;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 /* WAVEFORM CANVAS RULES */
@@ -112,8 +112,7 @@ textarea {
   color: #edeeed;
   cursor: pointer;
   font-size: clamp(0.2rem, 0.5rem + 0.3vw, 0.72rem);
-  padding: clamp(0.15rem, 0.12rem + 0.15vw, 0.4rem)      
-           clamp(0.4rem, 0.3rem + 0.5vw, 0.9rem);   
+  padding: clamp(0.15rem, 0.12rem + 0.15vw, 0.4rem) clamp(0.4rem, 0.3rem + 0.5vw, 0.9rem);
   transition: border-color 0.10s, box-shadow 0.10s, background 0.1s, transform 0.05s;
   font-weight: 200;
   letter-spacing: 0.15em;
@@ -153,11 +152,11 @@ textarea {
 #controls-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;  
-  width: 38.45vw;                  
+  justify-content: space-between;
+  width: 38.45vw;
   margin-top: 1.5%;
   margin-left: auto;
-  margin-right: auto;             
+  margin-right: auto;
 }
 
 /* FILE PICKER LABEL RULES */
@@ -169,8 +168,7 @@ textarea {
 /* FILE PICKER BUTTON RULES */
 input[type="file"]::file-selector-button {
   font-size: 8px;
-  padding: clamp(0.15rem, 0.12rem + 0.15vw, 0.4rem)      
-           clamp(0.4rem, 0.3rem + 0.5vw, 0.9rem);    
+  padding: clamp(0.15rem, 0.12rem + 0.15vw, 0.4rem) clamp(0.4rem, 0.3rem + 0.5vw, 0.9rem);
   border-radius: 6px;
   border: 2px solid #181a1c;
   background: #232426;
@@ -205,10 +203,10 @@ input[type="file"]::file-selector-button:active {
   transform: scale(0.94);
 }
 
-#clear-wf, #export-wf {
+#clear-wf,
+#export-wf {
   font-size: clamp(0.15rem, 0.40rem + 0.25vw, 0.65rem);
-  padding: clamp(0.10rem, 0.08rem + 0.12vw, 0.38rem)      
-           clamp(0.37rem, 0.26rem + 0.45vw, 0.86rem);
+  padding: clamp(0.10rem, 0.08rem + 0.12vw, 0.38rem) clamp(0.37rem, 0.26rem + 0.45vw, 0.86rem);
 }
 
 #export-wf {
@@ -298,7 +296,7 @@ input[type="file"]::file-selector-button:active {
 }
 
 /* SELECTED PRESET RULES */
-.preset-col input[type="radio"]:checked + .wave-icon {
+.preset-col input[type="radio"]:checked+.wave-icon {
   border-color: #b74c36;
   background: #212223;
   box-shadow:
@@ -338,12 +336,12 @@ input[type="file"]::file-selector-button:active {
   margin-left: auto;
   margin-right: auto;
   box-shadow:
-  0 0 10px 3px #c6a36280;
+    0 0 10px 3px #c6a36280;
   padding: 1%;
-  box-sizing: border-box; 
-  display: flex;            
+  box-sizing: border-box;
+  display: flex;
   flex-direction: column;
-  align-items: center;  
+  align-items: center;
   font-weight: 200;
   letter-spacing: 0.25em;
   font-family: "Futura", Arial, sans-serif;
@@ -376,7 +374,7 @@ input[type="file"]::file-selector-button:active {
   font-weight: 300;
   letter-spacing: 0.25em;
   font-family: "Futura", Arial, sans-serif;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -417,18 +415,18 @@ input[type="file"]::file-selector-button:active {
   position: relative;
   width: 3.5rem;
   height: 3.5rem;
-  display: flex;             
+  display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 /* TO HIDE THE REAL INPUT RANGE */
 .knob {
   position: absolute;
   inset: 0;
-  opacity: 0;     
+  opacity: 0;
   cursor: pointer;
-  z-index: 2; 
+  z-index: 2;
 }
 
 /* KNOB ASPECT RULES */
@@ -454,14 +452,14 @@ input[type="file"]::file-selector-button:active {
 .knob-indicator {
   position: absolute;
   left: 50%;
-  top: 50%;                
+  top: 50%;
   transform: translate(-50%, -100%) rotate(-135deg);
 
   width: 3px;
   height: 30%;
   background: #c0554aff;
   border-radius: 2px;
-  transform-origin: 50% 100%;  
+  transform-origin: 50% 100%;
   box-shadow: 0 0 4px 0 #c0554aff;
 }
 
@@ -478,7 +476,7 @@ input[type="file"]::file-selector-button:active {
 
 /* HOVER / FOCUS EFFECT */
 .knob-wrapper:hover .knob-visual,
-.knob:focus-visible + .knob-visual {
+.knob:focus-visible+.knob-visual {
   border-color: #c0554aff;
   box-shadow:
     0 0 6px 1px #c0554aff,
@@ -486,7 +484,7 @@ input[type="file"]::file-selector-button:active {
   transition: border-color 0.08s;
 }
 
-/* KNOB VALUE */ 
+/* KNOB VALUE */
 .knob-value {
   text-align: center;
   background: transparent;
@@ -535,7 +533,7 @@ input[type="file"]::file-selector-button:active {
   font-weight: 300;
   letter-spacing: 0.25em;
   font-family: "Futura", Arial, sans-serif;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -586,7 +584,7 @@ input[type="file"]::file-selector-button:active {
 }
 
 /* FILTER STATUS BUTTON ACTIVE */
-.filter-status input:checked + .status-button {
+.filter-status input:checked+.status-button {
   border-color: #b74c36;
   background: #212223;
   box-shadow:
@@ -661,7 +659,7 @@ input[type="file"]::file-selector-button:active {
 }
 
 /* FILTER SLOPE BUTTON ACTIVE */
-.slope-selector input[type="radio"]:checked + .slope-icon {
+.slope-selector input[type="radio"]:checked+.slope-icon {
   border-color: #b74c36;
   background: #212223;
   box-shadow:
@@ -678,19 +676,19 @@ input[type="file"]::file-selector-button:active {
 /* ------------------------------------------------------------ */
 
 
-:root{
+:root {
   --white-key-width: 3.7vw;
   --white-key-height: 17vw;
   --black-key-width: 2.6vw;
   --black-key-height: 9vw;
   --key-radius: 6px;
 
-  --key-accent: #b35b4f; 
+  --key-accent: #b35b4f;
   --key-border: #181a1c;
 }
 
 
-#performance-div{
+#performance-div {
   grid-column: 1 / -1;
   display: grid;
 
@@ -705,7 +703,7 @@ input[type="file"]::file-selector-button:active {
 }
 
 
-#octave-selectors{
+#octave-selectors {
   display: flex;
   flex-direction: column;
   gap: 1.3rem;
@@ -730,38 +728,38 @@ input[type="file"]::file-selector-button:active {
 }
 
 
-.kbd-area{
+.kbd-area {
   position: relative;
   user-select: none;
-  touch-action: manipulation; 
+  touch-action: manipulation;
 }
 
 /* WHITE KEYS ROW */
-.white-keys{
+.white-keys {
   display: flex;
   position: relative;
   z-index: 1;
   border-radius: 6px;
 }
 
-.black-keys{
+.black-keys {
   position: absolute;
   left: 0;
   top: 0;
   height: 9.8vw;
   width: 100%;
   z-index: 2;
-  pointer-events: none;     
+  pointer-events: none;
 }
 
-.key{
+.key {
   box-sizing: border-box;
   cursor: pointer;
   border: 1px solid #333;
 }
 
 /* WHITE KEYS RULES */
-.key.white{
+.key.white {
   width: 3.7vw;
   height: 17vw;
   background: linear-gradient(#edeeed, #e2e2e2);
@@ -777,15 +775,15 @@ input[type="file"]::file-selector-button:active {
 }
 
 /* BLACK KEYS RULES */
-.key.black{
+.key.black {
   position: absolute;
   width: 2.5vw;
   height: 9.8vw;
   background: linear-gradient(#181a1c, #0b0e0c);
   border-radius: 4px;
   border: 1px solid #2b2b2b;
-  box-shadow: 0 8px 14px rgba(0,0,0,0.45);
-  pointer-events: auto;    
+  box-shadow: 0 8px 14px rgba(0, 0, 0, 0.45);
+  pointer-events: auto;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -795,11 +793,12 @@ input[type="file"]::file-selector-button:active {
 }
 
 /* PRESSED KEY RULES */
-.key.white.active{
+.key.white.active {
   background: linear-gradient(#c0554a, #f8b5a4);
   transform: translateY(2px);
 }
-.key.black.active{
+
+.key.black.active {
   background: linear-gradient(#7c372f, #4b241a);
   transform: translateY(3px);
 }
@@ -811,11 +810,11 @@ input[type="file"]::file-selector-button:active {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  
+
   width: 12vw;
   height: 17vw;
   padding: 1rem 0;
-  
+
   box-sizing: border-box;
   border-radius: 10px;
   border: 1px solid #edeeed;
@@ -833,10 +832,10 @@ input[type="file"]::file-selector-button:active {
 #output-volume {
   transform: rotate(-90deg);
   appearance: none;
-  
-  width: 180px; 
-  height: 40px; 
-  
+
+  width: 180px;
+  height: 40px;
+
   background: transparent;
   cursor: pointer;
   margin: 0;
@@ -865,12 +864,12 @@ input[type="file"]::file-selector-button:active {
   border-radius: 50%;
   background: #c0554a;
   border: 2px solid #b7b7b7;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  margin-top: -9px; 
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  margin-top: -9px;
 }
 
 /* SLIDER WHEN FOCUS RULES */
-#output-volume::-webkit-slider-thumb:hover{
+#output-volume::-webkit-slider-thumb:hover {
   border-color: #edeeed;
   box-shadow:
     0 0 6px 1px #717171,
@@ -880,7 +879,7 @@ input[type="file"]::file-selector-button:active {
 }
 
 /* SLIDER WHEN ACTIVE RULES */
-#output-volume::-webkit-slider-thumb:active{
+#output-volume::-webkit-slider-thumb:active {
   border-color: #c0554aff;
   box-shadow:
     0 0 6px 1px #c0554aff,
