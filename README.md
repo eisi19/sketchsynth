@@ -2,6 +2,8 @@
 
 **SketchSynth** is a web-based interactive synthesizer that explores the relationship between visual shapes and audio timbre. It allows users to hand-draw custom waveforms, shape them with synthesis tools, and perform using virtual or external MIDI inputs.
 
+![Project Screenshot](GUI - screenshot.png)
+
 ## Features
 
 SketchSynth is structured into four main modules, providing a complete signal path from oscillator generation to audio output.
