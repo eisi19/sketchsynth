@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SketchSynth</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="script.js"></script>
+</head>
+
+<body>
+    <!-- ENVELOPE DESIGNER SECTION -->
+    <div class="column" id="left-column">
+        <div class="section-title font" id="envelope-designer">ENVELOPE DESIGNER</div>
+
+        <div id="adsr-box">
+            <canvas id="adsr-canvas"></canvas>
+        </div>
+
+        <div class="adsr-label-control">ADSR ENVELOPE
+            <label class="filter-status">
+                <input type="checkbox" id="adsr-status">
+                <span class="status-button">OFF</span>
+            </label>
+        </div>
+
+        <div id="adsr-division"></div>
+
+        <div id="adsr-knobs-div">
+
+            <!-- Attack KNOB -->
+            <div class="knob-group">
+                <input class="knob-value" id="attack-value" type="text" value="2.55 s">
+                <div class="knob-wrapper">
+                    <input type="range" id="attack" class="knob" min="0.05" max="5" step="0.01" value="1.0">
+                    <div class="knob-visual">
+                        <div class="knob-indicator"></div>
+                    </div>
+                </div>
+                <div class="knob-label">ATTACK</div>
+            </div>
+
+            <!-- Decay KNOB -->
+            <div class="knob-group">
+                <input class="knob-value" id="decay-value" type="text" value="2.55 s">
+                <div class="knob-wrapper">
+                    <input type="range" id="decay" class="knob" min="0.05" max="5" step="0.01" value="1.0">
+                    <div class="knob-visual">
+                        <div class="knob-indicator"></div>
+                    </div>
+                </div>
+                <div class="knob-label">DECAY</div>
+            </div>
+
+            <!-- Sustain KNOB -->
+            <div class="knob-group">
+                <input class="knob-value" id="sustain-value" type="text" value="2.55 s">
+                <div class="knob-wrapper">
+                    <input type="range" id="sustain" class="knob" min="0.05" max="5" step="0.01" value="1.0">
+                    <div class="knob-visual">
+                        <div class="knob-indicator"></div>
+                    </div>
+                </div>
+                <div class="knob-label">SUSTAIN</div>
+            </div>
+
+            <!-- Release KNOB -->
+            <div class="knob-group">
+                <input class="knob-value" id="release-value" type="text" value="2.55 s">
+                <div class="knob-wrapper">
+                    <input type="range" id="release" class="knob" min="0.05" max="5" step="0.01" value="1.00">
+                    <div class="knob-visual">
+                        <div class="knob-indicator"></div>
+                    </div>
+                </div>
+                <div class="knob-label">RELEASE</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SETUP SECTION -->
+    <div class="column" id="middle-column">
+        <div class="font" id="title">SKETCHSYNTH</div>
+
+        <!-- Waveform box: it contains the canvas -->
+        <div id="waveform-box">
+            <canvas id="waveform-canvas"></canvas>
+        </div>
+
+        <div id="controls-row">
+            <div id="file-input">
+                <label class="label-text">
+                    Load a CSV wavetable:
+                </label>
+                <input type="file" id="waveformFile" accept=".csv">
+            </div>
+
+            <button class="button" id="export-wf">EXPORT WAVEFORM</button>
+            <button class="button" id="clear-wf">CLEAR WAVEFORM</button>
+        </div>
+
+        <!-- Presets selectors -->
+        <div id="presets-div">
+            <div id="preset-title">PRESETS WAVEFORMS</div>
+
+            <div id="preset-row">
+
+                <div class="preset-col">
+                    <input type="radio" id="wave-sine" name="wave" value="sine" checked>
+                    <label for="wave-sine" class="wave-icon">
+                        <canvas class="wave-canvas" data-wave="sine"></canvas>
+                    </label>
+                    <div class="preset-label">SINE</div>
+                </div>
+
+                <div class="preset-col">
+                    <input type="radio" id="wave-square" name="wave" value="square">
+                    <label for="wave-square" class="wave-icon">
+                        <canvas class="wave-canvas" data-wave="square"></canvas>
+                    </label>
+                    <div class="preset-label">SQUARE</div>
+                </div>
+
+                <div class="preset-col">
+                    <input type="radio" id="wave-sawtooth" name="wave" value="sawtooth">
+                    <label for="wave-sawtooth" class="wave-icon">
+                        <canvas class="wave-canvas" data-wave="sawtooth"></canvas>
+                    </label>
+                    <div class="preset-label">SAWTOOTH</div>
+                </div>
+
+                <div class="preset-col">
+                    <input type="radio" id="wave-triangular" name="wave" value="triangle">
+                    <label for="wave-triangular" class="wave-icon">
+                        <canvas class="wave-canvas" data-wave="triangle"></canvas>
+                    </label>
+                    <div class="preset-label">TRIANGULAR</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- FILTER DESIGN SECTION -->
+    <div class="column" id="right-column">
+        <div class="section-title font" id="filter-designer">FILTER DESIGNER</div>
+
+        <div class="filters-div">
+            <!-- LOW PASS -->
+            <div class="filter-div" id="lowpass-filter-div">
+                <div class="filter-name">LOW PASS
+                    <label class="filter-status">
+                        <input type="checkbox" id="lp-status">
+                        <span class="status-button">OFF</span>
+                    </label>
+                </div>
+
+                <div class="filter-knobs-row">
+
+                    <!-- Cutoff KNOB -->
+                    <div class="knob-group">
+                        <input class="knob-value" id="lp-cutoff-value" type="text" value="1000.00 Hz">
+                        <div class="knob-wrapper">
+                            <input type="range" id="lp-cutoff" class="knob" min="50" max="20000" step="1" value="1000">
+                            <div class="knob-visual">
+                                <div class="knob-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="knob-label">CUTOFF</div>
+                    </div>
+
+                    <div class="knob-separator"></div>
+
+                    <!-- Resonance KNOB -->
+                    <div class="knob-group">
+                        <input class="knob-value" id="lp-resonance-value" type="text" value="1.00 Q">
+                        <div class="knob-wrapper">
+                            <input type="range" id="lp-resonance" class="knob" min="0.1" max="20" step="0.1"
+                                value="0.7">
+                            <div class="knob-visual">
+                                <div class="knob-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="knob-label">RESONANCE</div>
+                    </div>
+
+                </div>
+
+                <!-- SLOPE selectors -->
+                <div class="filter-slope-row">
+                    <div class="slope-selector">
+                        <input type="radio" id="lp-slope-12" name="lp-slope" value="12" checked>
+                        <label for="lp-slope-12" class="slope-icon">12 dB</label>
+                    </div>
+                    <div class="slope-selector">
+                        <input type="radio" id="lp-slope-24" name="lp-slope" value="24">
+                        <label for="lp-slope-24" class="slope-icon">24 dB</label>
+                    </div>
+                    <div class="slope-selector">
+                        <input type="radio" id="lp-slope-36" name="lp-slope" value="36">
+                        <label for="lp-slope-36" class="slope-icon">36 dB</label>
+                    </div>
+                    <div class="slope-selector">
+                        <input type="radio" id="lp-slope-48" name="lp-slope" value="48">
+                        <label for="lp-slope-48" class="slope-icon">48 dB</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="filters-division"></div>
+
+            <!-- HIGH PASS -->
+            <div class="filter-div">
+                <div class="filter-name">HIGH PASS
+                    <label class="filter-status">
+                        <input type="checkbox" id="hp-status">
+                        <span class="status-button">OFF</span>
+                    </label>
+                </div>
+
+                <div class="filter-knobs-row">
+
+                    <!-- Cutoff KNOB -->
+                    <div class="knob-group">
+                        <input class="knob-value" id="hp-cutoff-value" type="text" value="100.00 Hz">
+                        <div class="knob-wrapper">
+                            <input type="range" id="hp-cutoff" class="knob" min="20" max="20000" step="1" value="100">
+                            <div class="knob-visual">
+                                <div class="knob-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="knob-label">CUTOFF</div>
+                    </div>
+
+                    <div class="knob-separator"></div>
+
+                    <!-- Resonance KNOB -->
+                    <div class="knob-group">
+                        <input class="knob-value" id="hp-resonance-value" type="text" value="1.00 Q">
+                        <div class="knob-wrapper">
+                            <input type="range" id="hp-resonance" class="knob" min="0.10" max="20" step="0.1"
+                                value="0.7">
+                            <div class="knob-visual">
+                                <div class="knob-indicator"></div>
+                            </div>
+                        </div>
+                        <div class="knob-label">RESONANCE</div>
+                    </div>
+
+                </div>
+
+                <!-- SLOPE selectors -->
+                <div class="filter-slope-row">
+                    <div class="slope-selector">
+                        <input type="radio" id="hp-slope-12" name="hp-slope" value="12" checked>
+                        <label for="hp-slope-12" class="slope-icon">12 dB</label>
+                    </div>
+                    <div class="slope-selector">
+                        <input type="radio" id="hp-slope-24" name="hp-slope" value="24">
+                        <label for="hp-slope-24" class="slope-icon">24 dB</label>
+                    </div>
+                    <div class="slope-selector">
+                        <input type="radio" id="hp-slope-36" name="hp-slope" value="36">
+                        <label for="hp-slope-36" class="slope-icon">36 dB</label>
+                    </div>
+                    <div class="slope-selector">
+                        <input type="radio" id="hp-slope-48" name="hp-slope" value="48">
+                        <label for="hp-slope-48" class="slope-icon">48 dB</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- PERFORMANCE SECTION -->
+    <div class="row" id="performance-div">
+
+        <!-- Octave selectors -->
+        <div id="octave-selectors">
+            OCTAVE SELECTOR
+            <button class="button" id="octave-decr">- OCTAVE</button>
+            <button class="button" id="octave-incr">+ OCTAVE</button>
+        </div>
+
+        <div class="kbd-area" id="piano">
+            <div class="white-keys" id="white-keys">
+
+                <!-- Octave offset 0 -->
+                <div class="key white" data-note="C" data-octave-offset="0">C</div>
+                <div class="key white" data-note="D" data-octave-offset="0">D</div>
+                <div class="key white" data-note="E" data-octave-offset="0">E</div>
+                <div class="key white" data-note="F" data-octave-offset="0">F</div>
+                <div class="key white" data-note="G" data-octave-offset="0">G</div>
+                <div class="key white" data-note="A" data-octave-offset="0">A</div>
+                <div class="key white" data-note="B" data-octave-offset="0">B</div>
+
+                <!-- Octave offset 1 -->
+                <div class="key white" data-note="C" data-octave-offset="1">C</div>
+                <div class="key white" data-note="D" data-octave-offset="1">D</div>
+                <div class="key white" data-note="E" data-octave-offset="1">E</div>
+                <div class="key white" data-note="F" data-octave-offset="1">F</div>
+                <div class="key white" data-note="G" data-octave-offset="1">G</div>
+                <div class="key white" data-note="A" data-octave-offset="1">A</div>
+                <div class="key white" data-note="B" data-octave-offset="1">B</div>
+
+            </div>
+
+            <div class="black-keys" id="black-keys">
+
+                <!-- Octave offset 0 -->
+                <div class="key black" data-note="C#" data-octave-offset="0"
+                    style="left: calc(1 * var(--white-key-width) - var(--black-key-width)/2);">C#</div>
+                <div class="key black" data-note="D#" data-octave-offset="0"
+                    style="left: calc(2 * var(--white-key-width) - var(--black-key-width)/2);">D#</div>
+                <div class="key black" data-note="F#" data-octave-offset="0"
+                    style="left: calc(4 * var(--white-key-width) - var(--black-key-width)/2);">F#</div>
+                <div class="key black" data-note="G#" data-octave-offset="0"
+                    style="left: calc(5 * var(--white-key-width) - var(--black-key-width)/2);">G#</div>
+                <div class="key black" data-note="A#" data-octave-offset="0"
+                    style="left: calc(6 * var(--white-key-width) - var(--black-key-width)/2);">A#</div>
+
+                <!-- Octave offset 1 -->
+                <div class="key black" data-note="C#" data-octave-offset="1"
+                    style="left: calc(8 * var(--white-key-width) - var(--black-key-width)/2);">C#</div>
+                <div class="key black" data-note="D#" data-octave-offset="1"
+                    style="left: calc(9 * var(--white-key-width) - var(--black-key-width)/2);">D#</div>
+                <div class="key black" data-note="F#" data-octave-offset="1"
+                    style="left: calc(11 * var(--white-key-width) - var(--black-key-width)/2);">F#</div>
+                <div class="key black" data-note="G#" data-octave-offset="1"
+                    style="left: calc(12 * var(--white-key-width) - var(--black-key-width)/2);">G#</div>
+                <div class="key black" data-note="A#" data-octave-offset="1"
+                    style="left: calc(13 * var(--white-key-width) - var(--black-key-width)/2);">A#</div>
+
+            </div>
+
+        </div>
+
+        <!-- Output volume slider -->
+        <div id="output-volume-div">
+            OUTPUT VOLUME
+            <input type="range" id="output-volume" class="slider" min="-60" max="0" step="0.5" value="-12">
+            <span class="label-text" id="output-volume-value">0 dBFS</span>
+        </div>
+        
+    </div>
+
+</body>
+
+</html>

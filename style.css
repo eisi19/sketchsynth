@@ -1,0 +1,892 @@
+@font-face {
+  font-family: "Futura";
+  src:
+    url("fonts/Futura.ttc") format("ttc");
+  font-weight: 100 200 300 400 500 600 700;
+  font-style: normal;
+}
+
+/* BODY */
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 27.5% 45% 27.5%;
+  height: 100vh;
+  overflow: hidden;
+  background: #242527;
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  font-family: "Futura", sans-serif;
+
+  /*transform: scale(0.80);*/
+}
+
+/* GENERAL RULES */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+/* COLUMNS RULES */
+.column {
+  border: 2px solid #edeeed;
+  border-radius: 16px;
+  align-items: center;
+  height: 39.5vw;
+}
+
+/* TO AVOID MULTIPLE MARGIN OVERLAPPING */
+#middle-column {
+  border-right: none;
+  border-left: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* SECTION TITLES RULES */
+.section-title {
+  padding-top: 10%;
+  font-size: clamp(0.8rem, 0.7rem + 0.6vw, 1.2rem);
+  text-align: center;
+  color: #edeeed;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  font-family: "Futura", Arial, sans-serif;
+}
+
+/* NAME OF THE SYNTH RULES */
+#title {
+  padding-top: 3%;
+  font-size: clamp(1.5rem, 1rem + 1.5vw, 4rem);
+  text-align: center;
+  color: #edeeed;
+  font-weight: 300;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+}
+
+/* ------------------------------------------------------------ */
+/* SETUP SECTION
+/* ------------------------------------------------------------ */
+
+/* WAVEFORM BOX RULES */
+#waveform-box {
+  width: 38.45vw;
+  height: calc(38.45vw * 0.428);
+  background: #c7af84;
+  border-radius: 10px;
+  border: 4px solid #4a443b;
+  cursor: crosshair;
+  margin-top: 4.5%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:
+  0 0 10px 3px #c6a36280;
+  padding: 1%;
+  box-sizing: border-box; 
+}
+
+/* WAVEFORM CANVAS RULES */
+#waveform-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* BUTTONS RULES */
+.button {
+  border-radius: 6px;
+  border: 2px solid #181a1c;
+  background: #232426;
+  color: #edeeed;
+  cursor: pointer;
+  font-size: clamp(0.2rem, 0.5rem + 0.3vw, 0.72rem);
+  padding: clamp(0.15rem, 0.12rem + 0.15vw, 0.4rem)      
+           clamp(0.4rem, 0.3rem + 0.5vw, 0.9rem);   
+  transition: border-color 0.10s, box-shadow 0.10s, background 0.1s, transform 0.05s;
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+  box-shadow: 2px 2px 5px #0000004d;
+  text-align: center;
+}
+
+/* BUTTON RULES WHEN THE CURSOR IS ON IT */
+.button:hover {
+  border-color: #edeeed;
+  box-shadow:
+    0 0 6px 1px #717171,
+    0 8px 14px -6px #717171,
+    0 -2px 4px #717171;
+  transition: border-color 0.08s;
+}
+
+/* BUTTON RULES WHEN IS BEING PRESSED */
+.button:active {
+  border: 2px solid;
+  border-color: #b74c36;
+  background: #212223;
+  box-shadow:
+    0 0 6px 1px #dd5e44,
+    0 8px 14px -6px #dd5e44,
+    0 -2px 4px #dd5e44;
+  outline: 1px solid #1a1b1c;
+  transform: scale(0.94);
+}
+
+#file-input {
+  width: 60%;
+}
+
+/* FILE PICKER AND CLEAR WF ROW RULES */
+#controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;  
+  width: 38.45vw;                  
+  margin-top: 1.5%;
+  margin-left: auto;
+  margin-right: auto;             
+}
+
+/* FILE PICKER LABEL RULES */
+.label-text {
+  color: #dad6d9;
+  font-size: 8px;
+}
+
+/* FILE PICKER BUTTON RULES */
+input[type="file"]::file-selector-button {
+  font-size: 8px;
+  padding: clamp(0.15rem, 0.12rem + 0.15vw, 0.4rem)      
+           clamp(0.4rem, 0.3rem + 0.5vw, 0.9rem);    
+  border-radius: 6px;
+  border: 2px solid #181a1c;
+  background: #232426;
+  color: #edeeed;
+  cursor: pointer;
+  font-weight: 100;
+  letter-spacing: 0.0em;
+  font-family: "Futura", Arial, sans-serif;
+  box-shadow: 2px 2px 5px #0000004d;
+  transition: border-color 0.10s, box-shadow 0.10s, background 0.1s, transform 0.05s;
+}
+
+/* FILE PICKER BUTTON RULES WHEN THE CURSOR IS ON IT */
+input[type="file"]::file-selector-button:hover {
+  border-color: #edeeed;
+  box-shadow:
+    0 0 6px 1px #717171,
+    0 8px 14px -6px #717171,
+    0 -2px 4px #717171;
+  transition: border-color 0.08s;
+}
+
+/* FILE PICKER BUTTON WHEN PRESSED RULES */
+input[type="file"]::file-selector-button:active {
+  border-color: #b74c36;
+  background: #1f2022;
+  box-shadow:
+    0 0 6px 1px #dd5e44,
+    0 8px 14px -6px #dd5e44,
+    0 -2px 4px #dd5e44;
+  outline: 1px solid #1a1b1c;
+  transform: scale(0.94);
+}
+
+#clear-wf, #export-wf {
+  font-size: clamp(0.15rem, 0.40rem + 0.25vw, 0.65rem);
+  padding: clamp(0.10rem, 0.08rem + 0.12vw, 0.38rem)      
+           clamp(0.37rem, 0.26rem + 0.45vw, 0.86rem);
+}
+
+#export-wf {
+  margin-right: 2%;
+}
+
+#presets-div {
+  width: 38.45vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.8rem, 0.1rem + 0.8vw, 1.3rem);
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #edeeed;
+  background: #242527;
+  box-shadow: 0 0 8px 1px #00000066;
+  margin-top: 4.5%;
+  height: 23%;
+}
+
+
+/* PRESET WAVEFORMS TITLE RULES */
+#preset-title {
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-size: clamp(0.6rem, 0.5rem + 0.3vw, 1rem);
+  text-align: center;
+  color: #edeeed;
+  font-weight: 200;
+  letter-spacing: 0.25em;
+  font-family: "Futura", Arial, sans-serif;
+}
+
+/* ROW FOR PRESET SELECTORS AND LABELS RULES */
+#preset-row {
+  display: flex;
+  width: 38.45vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5%;
+  justify-content: space-between;
+}
+
+/* COLUMN FOR A PRESET SELECTOR AND THE RESPECTIVE LABEL RULE */
+.preset-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* TO HIDE THE RADIO SELECTOR DOT */
+.preset-col input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+/* DIV FOR CANVAS FOR PRESET WAVEFORM RULES */
+.wave-icon {
+  border-radius: 6px;
+  border: 2px solid #181a1c;
+  background: #232426;
+  cursor: pointer;
+  padding: 2px 4px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.10s, box-shadow 0.10s, background 0.1s, transform 0.05s;
+  box-shadow: 2px 2px 5px #0000004d;
+}
+
+/* CANVAS FOR PRESET WAVEFORM RULES */
+.wave-canvas {
+  display: block;
+  width: clamp(3.5rem, 2.5rem + 2vw, 5rem);
+  height: clamp(1.4rem, 1rem + 0.9vw, 2.2rem);
+}
+
+.wave-icon:hover {
+  border-color: #edeeed;
+  box-shadow:
+    0 0 6px 1px #717171,
+    0 8px 14px -6px #717171,
+    0 -2px 4px #717171;
+  transition: border-color 0.08s;
+}
+
+/* SELECTED PRESET RULES */
+.preset-col input[type="radio"]:checked + .wave-icon {
+  border-color: #b74c36;
+  background: #212223;
+  box-shadow:
+    0 0 6px 1px #dd5e44,
+    0 8px 14px -6px #dd5e44,
+    0 -2px 4px #dd5e44;
+  outline: 1px solid #1a1b1c;
+
+  transform: scale(0.94);
+}
+
+/* PRESETS LABELS RULES */
+.preset-label {
+  margin-top: 0.7rem;
+  text-align: center;
+  color: #edeeed;
+  font-size: clamp(0.2rem, 0.5rem + 0.3vw, 0.7rem);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+}
+
+
+/* ------------------------------------------------------------ */
+/* ENVELOPE DESIGNER SECTION
+/* ------------------------------------------------------------ */
+
+
+/* ADSR BOX RULES */
+#adsr-box {
+  width: 21vw;
+  height: calc(21vw * 0.6);
+  background: #c7af84;
+  border-radius: 10px;
+  border: 4px solid #4a443b;
+  margin-top: 22.75%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow:
+  0 0 10px 3px #c6a36280;
+  padding: 1%;
+  box-sizing: border-box; 
+  display: flex;            
+  flex-direction: column;
+  align-items: center;  
+  font-weight: 200;
+  letter-spacing: 0.25em;
+  font-family: "Futura", Arial, sans-serif;
+}
+
+/* ADSR CANVAS RULES */
+#adsr-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ADSR CANVAS LABEL RULES */
+#adsr-box-label {
+  margin-top: 9.5%;
+  text-align: center;
+  color: #edeeed;
+  font-size: clamp(0.6rem, 0.5rem + 0.3vw, 1rem);
+}
+
+#adsr-division {
+  margin-top: 2.14vw;
+}
+
+.adsr-label-control {
+  padding-top: 5.30%;
+  font-size: clamp(0.6rem, 0.5rem + 0.3vw, 1rem);
+  text-align: center;
+  color: #edeeed;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  font-family: "Futura", Arial, sans-serif;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding-left: 10%;
+}
+
+/* CONTAINER KNOB ADSR */
+#adsr-knobs-div {
+  width: 21vw;
+  height: 22.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.8rem, 0.1rem + 0.8vw, 1.3rem);
+  border-radius: 8px;
+  border: 1px solid #edeeed;
+  box-shadow: 0 0 8px 1px #00000066;
+}
+
+/* GROUP KNOB (knob + label) */
+.knob-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 17%;
+  height: 17%;
+  justify-content: center;
+
+  background: #242527;
+
+  padding: 1%;
+  transform: scale(0.90);
+}
+
+/* WRAPPER FOR THE KNOB AND THE INPUT RANGE */
+.knob-wrapper {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;             
+  align-items: center;
+  justify-content: center; 
+}
+
+/* TO HIDE THE REAL INPUT RANGE */
+.knob {
+  position: absolute;
+  inset: 0;
+  opacity: 0;     
+  cursor: pointer;
+  z-index: 2; 
+}
+
+/* KNOB ASPECT RULES */
+.knob-visual {
+  width: clamp(2.4rem, 3.6vw, 3.1rem);
+  aspect-ratio: 1 / 1;
+
+  border-radius: 50%;
+  background: #232526;
+  border: 2px solid #b7b7b7;
+  box-shadow:
+    0 0 8px 1px #00000088,
+    inset 0 0 4px 0 #000000aa;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* KNOB INDICATOR (TICK) */
+.knob-indicator {
+  position: absolute;
+  left: 50%;
+  top: 50%;                
+  transform: translate(-50%, -100%) rotate(-135deg);
+
+  width: 3px;
+  height: 30%;
+  background: #c0554aff;
+  border-radius: 2px;
+  transform-origin: 50% 100%;  
+  box-shadow: 0 0 4px 0 #c0554aff;
+}
+
+/* LABEL UNDER THE KNOB */
+.knob-label {
+  margin-top: 0.4rem;
+  color: #edeeed;
+  font-size: clamp(0.2rem, 0.5rem + 0.3vw, 0.7rem);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+  padding-top: 15%;
+}
+
+/* HOVER / FOCUS EFFECT */
+.knob-wrapper:hover .knob-visual,
+.knob:focus-visible + .knob-visual {
+  border-color: #c0554aff;
+  box-shadow:
+    0 0 6px 1px #c0554aff,
+    0 8px 14px -6px rgb(123, 55, 47);
+  transition: border-color 0.08s;
+}
+
+/* KNOB VALUE */ 
+.knob-value {
+  text-align: center;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: clamp(0.40rem, 0.35rem + 0.35vw, 0.80rem);
+  font-weight: 200;
+  color: #edeeed;
+  padding-bottom: 20%;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+  width: 5vw;
+}
+
+/* ------------------------------------------------------------ */
+/* FILTER DESIGNER SECTION
+/* ------------------------------------------------------------ */
+
+/* FILTERS CONTAINER RULES */
+.filters-div {
+  width: 100%;
+  margin-top: 8.7%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* SINGLE FILTER CONTAINER RULES */
+.filter-div {
+  width: 21vw;
+  padding: 4% 6%;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #edeeed;
+  background: #242527;
+  box-shadow: 0 0 8px 1px #00000066;
+  padding-bottom: 5%;
+}
+
+/* FILTER NAME RULES */
+.filter-name {
+  padding-bottom: 5.30%;
+  font-size: clamp(0.6rem, 0.5rem + 0.3vw, 1rem);
+  text-align: center;
+  color: #edeeed;
+  font-weight: 300;
+  letter-spacing: 0.25em;
+  font-family: "Futura", Arial, sans-serif;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding-left: 18%;
+}
+
+.filter-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+/* TO HIDE THE CHECKBOX */
+.filter-status input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* FILTER STATUS BUTTON */
+.status-button {
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+  border: 2px solid #181a1c;
+  background: #232426;
+  color: #edeeed;
+  cursor: pointer;
+  font-size: clamp(0.5rem, 0.45rem + 0.2vw, 0.7rem);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+  box-shadow: 2px 2px 5px #0000004d;
+  text-align: center;
+  min-width: 27px;
+}
+
+/* FILTER STATUS BUTTON HOVER*/
+.filter-status:hover .status-button {
+  border-color: #edeeed;
+  box-shadow:
+    0 0 6px 1px #717171,
+    0 8px 14px -6px #717171,
+    0 -2px 4px #717171;
+  transition: border-color 0.08s;
+}
+
+/* FILTER STATUS BUTTON ACTIVE */
+.filter-status input:checked + .status-button {
+  border-color: #b74c36;
+  background: #212223;
+  box-shadow:
+    0 0 6px 1px #dd5e44,
+    0 8px 14px -6px #dd5e44,
+    0 -2px 4px #dd5e44;
+  outline: 1px solid #1a1b1c;
+  transform: scale(0.92);
+}
+
+/* EMPTY ROW BTW THE TWO FILTERS */
+#filters-division {
+  height: 2.60vw;
+}
+
+/* ROW FOR CUTOFF AND RESONANCE KNOBS */
+.filter-knobs-row {
+  display: flex;
+  justify-content: center;
+  gap: clamp(1rem, 0.4rem + 1vw, 1.8rem);
+  margin-bottom: 6.1%;
+}
+
+/* HORIZONTAL SEPARATOR BTW CUTOFF AND RESONANCE KNOBS */
+.knob-separator {
+  width: 15%;
+}
+
+/* ROW FOR SLOPE BUTTONS */
+.filter-slope-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.slope-selector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slope-selector input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* FILTER SLOPE ICON */
+.slope-icon {
+  border-radius: 6px;
+  border: 2px solid #181a1c;
+  background: #232426;
+  color: #edeeed;
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  font-size: clamp(0.2rem, 0.5rem + 0.3vw, 0.72rem);
+  font-weight: 200;
+  letter-spacing: 0.15em;
+  font-family: "Futura", Arial, sans-serif;
+  transition: border-color 0.10s, box-shadow 0.10s, background 0.1s, transform 0.05s;
+  box-shadow: 2px 2px 5px #0000004d;
+}
+
+/* FILTER SLOPE BUTTON HOVER*/
+.slope-selector:hover .slope-icon {
+  border-color: #edeeed;
+  box-shadow:
+    0 0 6px 1px #717171,
+    0 8px 14px -6px #717171,
+    0 -2px 4px #717171;
+  transition: border-color 0.08s;
+}
+
+/* FILTER SLOPE BUTTON ACTIVE */
+.slope-selector input[type="radio"]:checked + .slope-icon {
+  border-color: #b74c36;
+  background: #212223;
+  box-shadow:
+    0 0 6px 1px #dd5e44,
+    0 8px 14px -6px #dd5e44,
+    0 -2px 4px #dd5e44;
+  outline: 1px solid #1a1b1c;
+  transform: scale(0.94);
+}
+
+
+/* ------------------------------------------------------------ */
+/* KEYBOARD SECTION */
+/* ------------------------------------------------------------ */
+
+
+:root{
+  --white-key-width: 3.7vw;
+  --white-key-height: 17vw;
+  --black-key-width: 2.6vw;
+  --black-key-height: 9vw;
+  --key-radius: 6px;
+
+  --key-accent: #b35b4f; 
+  --key-border: #181a1c;
+}
+
+
+#performance-div{
+  grid-column: 1 / -1;
+  display: grid;
+
+  grid-template-columns: 1fr auto 1fr;
+
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  max-width: 100vw;
+}
+
+
+#octave-selectors{
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  font-size: clamp(0.6rem, 0.5rem + 0.3vw, 1rem);
+  text-align: center;
+  color: #edeeed;
+  font-weight: 200;
+  letter-spacing: 0.25em;
+  font-family: "Futura", Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #edeeed;
+  background: #242527;
+  box-shadow: 0 0 8px 1px #00000066;
+  justify-self: center;
+  align-self: center;
+
+  width: 12vw;
+  height: 10vw;
+}
+
+
+.kbd-area{
+  position: relative;
+  user-select: none;
+  touch-action: manipulation; 
+}
+
+/* WHITE KEYS ROW */
+.white-keys{
+  display: flex;
+  position: relative;
+  z-index: 1;
+  border-radius: 6px;
+}
+
+.black-keys{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 9.8vw;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;     
+}
+
+.key{
+  box-sizing: border-box;
+  cursor: pointer;
+  border: 1px solid #333;
+}
+
+/* WHITE KEYS RULES */
+.key.white{
+  width: 3.7vw;
+  height: 17vw;
+  background: linear-gradient(#edeeed, #e2e2e2);
+  border: 1px solid #747474;
+  border-bottom: 6px solid #a8a8a8;
+  border-radius: 2px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #1c1c1c;
+  padding-bottom: 8px;
+}
+
+/* BLACK KEYS RULES */
+.key.black{
+  position: absolute;
+  width: 2.5vw;
+  height: 9.8vw;
+  background: linear-gradient(#181a1c, #0b0e0c);
+  border-radius: 4px;
+  border: 1px solid #2b2b2b;
+  box-shadow: 0 8px 14px rgba(0,0,0,0.45);
+  pointer-events: auto;    
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 0.62rem;
+  color: #edeeed;
+  padding-bottom: 6px;
+}
+
+/* PRESSED KEY RULES */
+.key.white.active{
+  background: linear-gradient(#c0554a, #f8b5a4);
+  transform: translateY(2px);
+}
+.key.black.active{
+  background: linear-gradient(#7c372f, #4b241a);
+  transform: translateY(3px);
+}
+
+
+/* SLIDER CONTAINER RULES */
+#output-volume-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  
+  width: 12vw;
+  height: 17vw;
+  padding: 1rem 0;
+  
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: 1px solid #edeeed;
+  background: #242527;
+  box-shadow: 0 0 8px 1px #00000066;
+  color: #edeeed;
+  font-family: "Futura", Arial, sans-serif;
+  justify-self: center;
+  align-self: center;
+  letter-spacing: 0.25em;
+  font-size: clamp(0.6rem, 0.5rem + 0.3vw, 1rem);
+}
+
+/* SLIDER RULES */
+#output-volume {
+  transform: rotate(-90deg);
+  appearance: none;
+  
+  width: 180px; 
+  height: 40px; 
+  
+  background: transparent;
+  cursor: pointer;
+  margin: 0;
+}
+
+/* SLIDER LABEL RULES */
+#output-volume-value {
+  margin-top: 0.5rem;
+  font-size: clamp(0.2rem, 0.5rem + 0.3vw, 0.7rem);
+}
+
+/* SLIDER RUNNABLE TRACK RULES */
+#output-volume::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: #181a1c;
+  border-radius: 4px;
+  border: 1px solid #333;
+}
+
+/* SLIDER THUMB RULES */
+#output-volume::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: #c0554a;
+  border: 2px solid #b7b7b7;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  margin-top: -9px; 
+}
+
+/* SLIDER WHEN FOCUS RULES */
+#output-volume::-webkit-slider-thumb:hover{
+  border-color: #edeeed;
+  box-shadow:
+    0 0 6px 1px #717171,
+    0 8px 14px -6px #717171,
+    0 -2px 4px #717171;
+  transition: border-color 0.08s;
+}
+
+/* SLIDER WHEN ACTIVE RULES */
+#output-volume::-webkit-slider-thumb:active{
+  border-color: #c0554aff;
+  box-shadow:
+    0 0 6px 1px #c0554aff,
+    0 8px 14px -6px rgb(123, 55, 47);
+  transition: border-color 0.08s;
+  background-color: #181a1c;
+}
