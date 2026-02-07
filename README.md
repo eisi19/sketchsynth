@@ -44,4 +44,4 @@ The interface for musical performance.
 1. Draw your waveform in the canvas or select a preset.
 2. Adjust the ADSR times for the amplitude envelope (optional)
 3. Adjust the filters to achieve the desired timbre
-4. Play on the keyboard and select the desider octave or connect an external MIDI keyboard (not supported on every browser)
+4. Play on the keyboard and select the desired octave or connect an external MIDI keyboard (not supported on every browser)
